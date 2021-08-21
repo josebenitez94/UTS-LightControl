@@ -1,6 +1,6 @@
 # UTS-LightControl
 
-_Este repositorio se crea con el fin de llevar el almacenamiento y desarrollo del proyecto de Grado LightControl para optar por el titulo de Ingeniero Electronico de un cliente. El dispositivo consta de un hardware diseñado y desarrollado + firmware que permite la lectura de tarjetas RFID y que llevan el control del encendido-apagado de las luces de las UNIDADES TECNOLOGICAS DE SANTANDER_
+_Este repositorio se crea con el fin de llevar el almacenamiento y desarrollo del proyecto de Grado LightControl para optar por el titulo de Ingeniero Electronico de un cliente. El dispositivo consta de un hardware diseñado y desarrollado + firmware que permite la lectura de tarjetas RFID y que llevan el control del encendido-apagado de las luces de las UNIDADES TECNOLOGICAS DE SANTANDER con tecnologías web PHP, Javascript y MySQL._
 
 ## Comenzando - TAREAS 🚀
 
@@ -12,17 +12,12 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 * [Task 4](http://www.dropwizard.io/1.0.2/docs/) - Control de luces led + sonido por buzzer
 * [Task 5]() - Sensor de corriente ACS712
 
-
 ### Pre-requisitos 📋
 
-_Instalar Arduino IDE y depencias ESP32_
-```
-https://downloads.arduino.cc/arduino-1.8.15-windows.exe
-```
-_Instalar XAMPP_
-```
-https://www.apachefriends.org/xampp-files/8.0.9/xampp-windows-x64-8.0.9-0-VS16-installer.exe
-```
+* Instalar Arduino IDE y depencias ESP32 [Arduino IDE Windows](https://downloads.arduino.cc/arduino-1.8.15-windows.exe)
+* Instalar dependencias y librerias para ESP32 en Arduino
+* Hardware **LightControlHardware** y cargarle el firmware de este repositorio
+* Utilizar a la par el proyecto [UTS-LightControlWeb](https://github.com/josebenitez94/UTS-LightControlWeb)
 
 ## Ejecutando las pruebas ⚙️
 
@@ -32,11 +27,10 @@ __
 
 * [Arduino IDE](https://www.arduino.cc/en/software) - IDE de desarrollo de entorno Arduino
 * [Visual Studio](https://visualstudio.microsoft.com/es/) - Herramienta Editor por Excelencia para Desarrolladores
-* [XAMPP](https://www.apachefriends.org/es/index.html) - Software servidor con dependencias de apache + mySQL
 
 ## Versionado 📌
 
-Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
+Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/josebenitez94/UTS-LightControl/tags).
 
 ## Autores ✒️
 
