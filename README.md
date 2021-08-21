@@ -6,10 +6,11 @@ _Este repositorio se crea con el fin de llevar el almacenamiento y desarrollo de
 
 _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación_
 
-* [Task 1](http://www.dropwizard.io/1.0.2/docs/) - Control de luces led + sonido por buzzer
-* [Task 2]() - WIFI :: conexión por modo AP/ROUTER + consultas pila TCP/IP
+* [Task 1] - WIFI :: Conexión por modo ACCESSPOINT/STATION + consultas pila TCP/IP
+* [Task 2] - WIFI :: Conexión con servidor por servicio en PHP bidireccional
 * [Task 3]() - Lectura RFID con modulo RC522
-* [Task 4]() - Sensor de corriente ACS712
+* [Task 4](http://www.dropwizard.io/1.0.2/docs/) - Control de luces led + sonido por buzzer
+* [Task 5]() - Sensor de corriente ACS712
 
 
 ### Pre-requisitos 📋

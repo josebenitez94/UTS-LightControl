@@ -4,6 +4,7 @@
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
+#include <HTTPClient.h>
 
 AsyncWebServer server(PORT_AP_STA);
 
@@ -14,14 +15,27 @@ bool initAPMode(){
     return(true);
 }
 
-bool initSTAMode(){
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(SSID_STA, PASS_STA);
+bool initSTAMode(String ssid, String pass){
+    int contWifiConnect=0;
+    
+    for(int i=0;i<INTENT_UNTIL_RESET;i++){
+        WiFi.mode(WIFI_STA);
+        WiFi.begin(ssid.c_str(), pass.c_str());
 
-    if (WiFi.waitForConnectResult() != WL_CONNECTED) {
-        return(false);
+        while ((WiFi.status() != WL_CONNECTED) || (contWifiConnect < INTENT_CONNECT_TIME)) {
+            Serial.print('.');
+            delay(1000);
+            contWifiConnect++;
+        }
+        if(contWifiConnect == INTENT_CONNECT_TIME){
+            Serial.println("Ha fallado la conexion, quedan "+String(INTENT_UNTIL_RESET-i) + "Intentos");
+            contWifiConnect=0;
+        }
+        else{
+            return(true);
+        }
     }
-    return(true);
+    return(false);
 }
 
 IPAddress getLocalIP(){

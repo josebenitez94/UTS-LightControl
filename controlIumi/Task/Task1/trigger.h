@@ -4,10 +4,12 @@
 #include "config.h"
 
 TaskHandle_t task1_handle = NULL;
-void task1_function(void * parameters);
+void task1_function();
 
 void task1_init(){
     #ifdef enable_task1
+    task1_function();
+    /*
     xTaskCreatePinnedToCore(
         task1_function,
         task1_name,
@@ -16,6 +18,7 @@ void task1_init(){
         task1_priority,
         &task1_handle,
         task1_nucleo);
+    */
     #endif
 }
 

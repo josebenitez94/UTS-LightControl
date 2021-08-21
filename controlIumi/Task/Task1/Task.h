@@ -2,24 +2,40 @@
 #define task1_task
 
 #include "trigger.h"
-#ifdef enable_task1
 #include "WifiParameter/wifiParameter.h"
-#include "WifiParameter/request.h"
 #include "WifiParameter/response.h"
+#include "WifiParameter/request.h"
 
-void task1_function(void * parameters){
-    (void)parameters;
+#ifdef enable_task1
 
-    if(initSTAMode()) Serial.println("wifi inicializada correctamente");
-    else Serial.println("Wifi no inicializada");
-    initRequestServices();
-    Serial.println("Servicios montados satisfactoriamente");
-    Serial.println("imprimiendo IP LOCAL");
-    Serial.println(getLocalIP());
-
-    for(;;){
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+void task1_function(){
+    Serial.println("Inicializa Tarea #1");
+    if(isFileExist(CREDENTIALS_SPIFFS)){
+        String credential = readFile(CREDENTIALS_SPIFFS);
+        String ssid = credential.substring(0, credential.indexOf(";"));
+        String pass = credential.substring(credential.indexOf(";")+1);
+        bool connected = initSTAMode(ssid, pass);
+        if(!connected){
+            Serial.println("Credenciales no validas o Wifi inaccesible! Reseteando Parametros...");
+            deleteFile(CREDENTIALS_SPIFFS);
+            delay(100);
+            ESP.restart();
+        }
+        else{
+            Serial.print("Wifi Inicializado con IP:");
+            Serial.println(getLocalIP());
+        }
     }
+    else{
+        if(initAPMode()) 
+            Serial.println("Wifi AP inicializado correctamente");
+        else
+            Serial.println("Wifi AP no inicializado");
+    }
+    Serial.println("INICIALIZANDO SERVICIOS");
+    initRequestServices();
+    Serial.println("Servicios asincronos montados satisfactoriamente");
+
 }
 #endif
 #endif

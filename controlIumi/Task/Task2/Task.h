@@ -1,11 +1,11 @@
-#ifndef task0_task
-#define task0_task
+#ifndef task2_task
+#define task2_task
 
 #include "trigger.h"
-#ifdef enable_task0
+#ifdef enable_task2
 
 
-void task0_function(void * parameters){
+void task2_function(void * parameters){
     
     (void)parameters;
 
