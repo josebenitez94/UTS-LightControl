@@ -12,6 +12,8 @@ MFRC522::MIFARE_Key key;
 
 void task3_function(void * parameters){
     (void)parameters;
+
+    vTaskDelay(50 / portTICK_PERIOD_MS);
     Serial.println("Inicializa Tarea #3 :: Lectura RFID");
     SPI.begin();
     rfid.PCD_Init();

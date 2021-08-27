@@ -21,12 +21,18 @@ bool initSTAMode(String ssid, String pass){
     for(int i=0;i<INTENT_UNTIL_RESET;i++){
         WiFi.mode(WIFI_STA);
         WiFi.begin(ssid.c_str(), pass.c_str());
+        bool statusLed = true;
 
         while ((WiFi.status() != WL_CONNECTED) || (contWifiConnect < INTENT_CONNECT_TIME)) {
+            digitalWrite(LED_BLUE, statusLed);
             Serial.print('.');
             delay(1000);
             contWifiConnect++;
+            statusLed = !statusLed;
+            if(WiFi.status() == WL_CONNECTED) 
+                break;
         }
+        digitalWrite(LED_BLUE, LOW);
         if(contWifiConnect == INTENT_CONNECT_TIME){
             Serial.println("Ha fallado la conexion, quedan "+String(INTENT_UNTIL_RESET-i) + "Intentos");
             contWifiConnect=0;

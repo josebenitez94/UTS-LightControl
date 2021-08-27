@@ -10,7 +10,7 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 * [Task 2] - WIFI :: Conexión con servidor por servicio en PHP bidireccional
 * [Task 3]() - Lectura RFID con modulo RC522
 * [Task 4](http://www.dropwizard.io/1.0.2/docs/) - Control de luces led + sonido por buzzer
-* [Task 5]() - Sensor de corriente ACS712
+* [Task 5]() - Sensor de corriente ACS712 + Control de Actuador
 
 ### Pre-requisitos 📋
 
@@ -18,9 +18,17 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 * Instalar dependencias y librerias para ESP32 en Arduino
 * Hardware **LightControlHardware** y cargarle el firmware de este repositorio
 * Utilizar a la par el proyecto [UTS-LightControlWeb](https://github.com/josebenitez94/UTS-LightControlWeb)
+* Abrir el archivo config/config.h con los parametros deseados
 
-## Ejecutando las pruebas ⚙️
+## INDICADORES DE ESTADO ⚙️
 
+* MODO ACCESS POINT: MORADO INDEFINIDO
+* CONNECTION_WAITING: Esperando Conexión INTERMITENTE(Cambio cada segundo)
+* MODO STATION OK: VERDE SOLIDO (POR 2 SEGUNDOS)
+* MODO STATION ERROR: ROJO INDEFINIDO (REALIZA UN REINICIO AUTOMATICO PASADOS 2 SEGUNDOS)
+* SERVER ERROR: AMARILLO INTERMITENTE (CADA SEGUNDO POR 3 OCASIONES)
+* ACCESS OK: AZUL SOLIDO (POR 3 SEGUNDOS)
+* ACCESS ERROR: ROJO INTERMITENTE (CADA SEGUNDO POR 3 OCASIONES)
 __
 
 ## Construido con 🛠️

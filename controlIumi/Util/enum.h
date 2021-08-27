@@ -1,10 +1,15 @@
 #ifndef UTIL_ENUM_H
 #define UTIL_ENUM_H
 
-struct Ident
-{
-    bool available;
-    String id;
+enum AlarmLevel{
+    NONE_ALARM,
+    MODE_AP, // MORADO R+B
+    CONNECTION_WAITING, // AZUL 
+    CONNECTION_OK, //Verde
+    CONNECTION_ERROR, // ROJO
+    SERVER_ERROR, //AMARILLO R+G
+    ACCESS_OK, //AZUL
+    ACCESS_ERROR //ROJO
 };
 
 
