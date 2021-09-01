@@ -10,6 +10,7 @@ struct Ident
 struct System{
     int timeLightOn;
     boolean newStatus;
+    boolean automatic;
 };
 
 #endif

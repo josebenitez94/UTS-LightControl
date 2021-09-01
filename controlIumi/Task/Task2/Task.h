@@ -11,13 +11,21 @@ void task2_function(void * parameters){
     (void)parameters;
 
     vTaskDelay(25 / portTICK_PERIOD_MS);
-    Serial.println("Inicializa Tarea #1 :: WIFI REQUEST/RESPONSE SERVICES");
+    Serial.println("Inicializa Tarea #2 :: WIFI REQUEST/RESPONSE SERVICES");
 
     for(;;){
         if(WiFi.status()== WL_CONNECTED){
-            if(identification.available){
+            if(identification.available || sistem.automatic){
+                String serverPath = String(URL_SERVER) + PAGE_INSERTAR_PHP + "?id=" + identification.id + "&mac=" + MAC_ADDRESS + "&tipo=";
+                
+                if(identification.available)
+                    serverPath += "normal";
+                if(sistem.automatic)
+                    serverPath += "auto";
+
                 identification.available = false;
-                String serverPath = String(URL_SERVER) + PAGE_INSERTAR_PHP + "?id=" + identification.id + "&mac=" + MAC_ADDRESS + "&estado=" + "1";
+                sistem.automatic = false;
+                
                 http.begin(serverPath.c_str());
                 int httpResponseCode = http.GET();
                 if (httpResponseCode == 200) {
@@ -36,7 +44,7 @@ void task2_function(void * parameters){
                         sistem.newStatus = true;
                         setModeLed(ACCESS_OK);
                     } 
-                    Serial.println(sistem.timeLightOn);
+                    Serial.println("payload:"+payload);
                 }
                 else {
                     //RUTINA ERROR DE CONSULTA

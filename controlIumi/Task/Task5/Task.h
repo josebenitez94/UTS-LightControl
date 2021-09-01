@@ -25,12 +25,19 @@ void task5_function(void * parameters){
                 Serial.println("ENCIENDE BOMBILLA");
                 varDelete=true;
             }
+            else{
+                digitalWrite(RELE_PIN, LOW);
+                TiAct = millis();
+                Serial.println("APAGA BOMBILLA");
+                varDelete=false;
+            }
         }
-        if((millis() > (sistem.timeLightOn*100 + TiAct))){
-            digitalWrite(RELE_PIN, LOW);
+
+        if((millis() > (sistem.timeLightOn*1000 + TiAct))){
             if(varDelete){
                 varDelete = false;
-                Serial.println("APAGUE BOMBILLA");
+                sistem.automatic = true;
+                Serial.println("TIEMPO EXCEDIDO");
             }
         }
 
