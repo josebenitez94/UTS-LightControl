@@ -14,8 +14,8 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 
 ### Pre-requisitos 📋
 
-* Instalar Arduino IDE y depencias ESP32 [Arduino IDE Windows](https://downloads.arduino.cc/arduino-1.8.15-windows.exe)
-* Instalar dependencias y librerias para ESP32 en Arduino
+* Instalar Arduino IDE y dependencias ESP32 [Arduino IDE Windows](https://downloads.arduino.cc/arduino-1.8.15-windows.exe)
+* Instalar dependencias y librerias para ESP32 en Arduino [ESP32 para Arduino] (https://iberotecno.com/blog-supratecno/47-tutoriales-paso-a-paso/108-como-instalar-esp32-en-el-ide-de-arduino-tutorial)
 * Hardware **LightControlHardware** y cargarle el firmware de este repositorio
 * Utilizar a la par el proyecto [UTS-LightControlWeb](https://github.com/josebenitez94/UTS-LightControlWeb)
 * Abrir el archivo config/config.h con los parametros deseados

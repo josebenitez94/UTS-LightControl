@@ -15,16 +15,19 @@ void task2_function(void * parameters){
 
     for(;;){
         if(WiFi.status()== WL_CONNECTED){
-            if(identification.available || sistem.automatic){
+            if(identification.available || sistem.automatic || sistem2.automatic){
                 String serverPath = String(URL_SERVER) + PAGE_INSERTAR_PHP + "?id=" + identification.id + "&mac=" + MAC_ADDRESS + "&tipo=";
                 
                 if(identification.available)
                     serverPath += "normal";
                 if(sistem.automatic)
                     serverPath += "auto";
+                if(sistem2.automatic)
+                    serverPath += "error";
 
                 identification.available = false;
                 sistem.automatic = false;
+                sistem2.automatic = false;
                 
                 http.begin(serverPath.c_str());
                 int httpResponseCode = http.GET();
@@ -39,6 +42,8 @@ void task2_function(void * parameters){
                         setModeLed(ACCESS_ERROR);
                     else if(payload == "DATOS_ERROR")
                         setModeLed(CONNECTION_ERROR);
+                    else if(payload == "NADA")
+                        setModeLed(ACCESS_ERROR);
                     else{
                         sistem.timeLightOn = payload.toInt();
                         sistem.newStatus = true;
@@ -50,6 +55,7 @@ void task2_function(void * parameters){
                     //RUTINA ERROR DE CONSULTA
                     Serial.print("Error code: ");
                     Serial.println(httpResponseCode);
+                    setModeLed(ACCESS_ERROR);
                 }
                 http.end();
             }

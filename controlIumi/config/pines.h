@@ -8,6 +8,7 @@
 #define LED_GREEN 33
 #define LED_BLUE 26
 #define RELE_PIN 27
+#define CORRIENTE_SENSOR 34
 
 
 #endif

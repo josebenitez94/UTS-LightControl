@@ -11,6 +11,7 @@
 Ident identification;
 String MAC_ADDRESS;
 System sistem;
+System sistem2;
 void setModeLed(AlarmLevel level);
 
 #include "../Task/Task1/Task.h"
