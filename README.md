@@ -20,7 +20,11 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 * Utilizar a la par el proyecto [UTS-LightControlWeb](https://github.com/josebenitez94/UTS-LightControlWeb)
 * Abrir el archivo config/config.h con los parametros deseados
 
-## INDICADORES DE ESTADO ⚙️
+Parametros mas importantes de config.h
+* URL_SERVER: Se debe colocar la url del servidor con su respectivo puerto, sino no va a funcionar nada
+* VALUE_DETECT: Si no se reconoce el daño del bombillo, se debe bajar el valor de esta definición, por defecto es 1600
+
+## INDICADORES DE ESTADO 🚀
 
 * MODO ACCESS POINT: MORADO INDEFINIDO
 * CONNECTION_WAITING: Esperando Conexión INTERMITENTE(Cambio cada segundo)
@@ -30,6 +34,15 @@ _El algoritmo FreeRTOS conlleva una arquitectura que se presenta a continuación
 * ACCESS OK: AZUL SOLIDO (POR 3 SEGUNDOS)
 * ACCESS ERROR: ROJO INTERMITENTE (CADA SEGUNDO POR 3 OCASIONES)
 __
+
+## PASOS PARA CONFIGURAR TODO EL SISTEMA ⚙️
+* Armar Todo el hardware requerido [Circuito Electronico](https://github.com/josebenitez94/UTS-LightControl/tree/Master/Hardware)
+* Conectar conversor USB-UART
+* Compilar Firmware y subir a la tarjeta [Firmware LightControl](https://github.com/josebenitez94/UTS-LightControl/tree/Master/controlIumi)
+* Si es la primera vez que se usa, el hardware pasará a modo AP (Luz morada)... por lo que debe conectarse a la red WIFI que se genera (LightControl-01)
+* luego de darse de alta en la red, debe dirigirse a [http://192.168.4.1/REGISTER](http://192.168.4.1/REGISTER) y colocar los datos del router WIFI al cual se debe conectar y a continuación click en Login. Debe colocar el mensaje "OK, Cambiando Parametros" y tumbar la red ACCESS POINT para conectarse al router
+* una vez conectado al router, el led verde se activará por 3 segundos indicando que ya se encuentra satisfactoriamente conectada y lista para consultas
+
 
 ## Construido con 🛠️
 
