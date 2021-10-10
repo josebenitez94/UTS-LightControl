@@ -55,7 +55,7 @@ Para todas las versiones disponibles, mira los [tags en este repositorio](https:
 
 ## Autores ✒️
 
-* **Jose Benítez** - *Ingeriero Electronico y Tecnologo en Desarrollo de Sistemas Informaticos* - [josebenitez94](https://github.com/josebenitez94)
+* **Jose Benítez** - *Ingeniero Electrónico y Tecnólogo en Desarrollo de Sistemas Informáticos* - [josebenitez94](https://github.com/josebenitez94)
 
 ## Licencia 📄
 
